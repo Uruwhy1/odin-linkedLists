@@ -102,8 +102,8 @@ class LinkedList {
 
   //Create a removeAt(index) function that removes the node at the given index.
   removeAt(index) {
-    if (index < 0) {
-      console.log("NEGATIVE INDEX == :(");
+    if (index < 0 || index >= this.size()) {
+      console.log("BAD INDEX == :(");
       return;
     }
     if (index == 0) {
@@ -275,7 +275,10 @@ function test3() {
   list.insertAt(3, 5); // Should log "Index out of bounds"
 
   // Try to remove at negative index
-  list.removeAt(-1); // Should log "NEGATIVE INDEX == :("
+  list.removeAt(-1); // Should log "BAD INDEX == :("
+
+  // Try to remove at too big of an index
+  list.removeAt(10); // Should log "BAD INDEX == :("
 }
 
 console.log("TEST NUMBER ONE \n")
